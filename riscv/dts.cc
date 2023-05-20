@@ -158,6 +158,7 @@ std::string dts_compile(const std::string& dts)
       }
     }
     close(dts_pipe[1]);
+    close(STDIN_FILENO); // Avoid breaking parent process stdin
     exit(0);
   }
 
